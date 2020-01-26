@@ -1,0 +1,27 @@
+esphome:
+  name: esp32
+  platform: ESP32
+  board: ttgo-t1
+
+
+spi:
+  clk_pin: 5
+  mosi_pin: 23
+
+font:
+  - file: "OpenSans-Regular.ttf"
+    id: my_font
+    size: 10
+
+
+display:
+  - platform: st7735_spi
+    model: "ST7735_128X128"
+    cs_pin: 16
+    dc_pin: 17
+    reset_pin: 9
+    lambda: |-
+      it.print(0, 0, id(my_font), "Hello World!");
+
+
+
